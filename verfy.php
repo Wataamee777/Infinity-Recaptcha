@@ -36,8 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<h3>✅ reCAPTCHA認証成功！</h3>";
         echo "<script>setTimeout(() => location.reload(), 2000);</script>";
     } else {
-        // 認証失敗メッセージ
-        echo "<h3>❌ 認証失敗！もう一度試してください。</h3>";
+        // 認証失敗時に再挑戦用のURLにリダイレクト
+        header("Location: index.html?retry=true");
+        exit;
     }
+} else {
+    // POSTメソッド以外の場合、405エラーを返す
+    http_response_code(405);
+    echo "Method Not Allowed";
 }
 ?>
