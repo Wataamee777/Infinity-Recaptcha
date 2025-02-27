@@ -10,6 +10,17 @@
             text-align: center;
             margin-top: 50px;
         }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -17,12 +28,29 @@
 
     <!-- reCAPTCHAウィジェット -->
     <form action="verify.php" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LfWS-QqAAAAAA3LuIntoYGXOm-gmh-4bJtMXKd8"></div>
+        <div class="g-recaptcha" data-sitekey="あなたのサイトキー"></div>
         <br>
         <input type="submit" value="送信">
     </form>
 
+    <!-- 再挑戦ボタン -->
+    <button id="reloadButton">再挑戦</button>
+
     <!-- reCAPTCHA APIスクリプト -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+        // 再挑戦ボタンの表示/非表示を制御
+        const reloadButton = document.getElementById('reloadButton');
+        
+        // 認証失敗時に再挑戦ボタンを表示
+        if (window.location.search.includes('retry=true')) 
+        
+        
+        // ボタンクリックでリロード
+        reloadButton.addEventListener('click', () => {
+            location.reload();
+        });
+    </script>
 </body>
 </html>
