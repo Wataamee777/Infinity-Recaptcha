@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA v2 無限に挑戦</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>reCAPTCHAを解いてください</h2>
+
+    <!-- reCAPTCHAウィジェット -->
+    <form action="verify.php" method="POST">
+        <div class="g-recaptcha" data-sitekey="あなたのサイトキー"></div>
+        <br>
+        <input type="submit" value="送信">
+    </form>
+
+    <!-- reCAPTCHA APIスクリプト -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>
